@@ -4,6 +4,7 @@ var BRIGHTNESS_CHARACTERISTIC = 'FF12';
 
 var app = {
     initialize: function() {
+        console.log('initialize')
         this.bindEvents();
         this.showMainPage();
     },

@@ -1,10 +1,8 @@
 var LED_SERVICE = 'FF10';
 var SWITCH_CHARACTERISTIC = 'FF11';
-var BRIGHTNESS_CHARACTERISTIC = 'FF12';
 
 var app = {
     initialize: function() {
-        console.log('initialize')
         this.bindEvents();
         this.showMainPage();
     },
@@ -15,7 +13,6 @@ var app = {
         refreshButton.addEventListener('click', this.refreshDeviceList, false);
         onButton.addEventListener('click', this.switchOn, false);
         offButton.addEventListener('click', this.switchOff, false);
-        brightness.addEventListener('change', this.setBrightness, false);
         disconnectButton.addEventListener('click', this.disconnect, false);
     },
     onDeviceReady: function() {
@@ -55,7 +52,7 @@ var app = {
     },
     setSwitchValue: function(value) {
         var success = function() {
-            console.log('Set switch value to ' + value);
+            console.log("Set switch value to " + value);
         };
 
         if (app.peripheral && app.peripheral.id) {
@@ -65,26 +62,6 @@ var app = {
                 app.peripheral.id,
                 LED_SERVICE,
                 SWITCH_CHARACTERISTIC,
-                data.buffer,
-                success,
-                app.onError
-            );
-        }
-    },
-    setBrightness: function() {
-
-        var data = new Uint8Array(1);
-        data[0] = brightness.value;
-
-        var success = function() {
-            console.log('Set brightness to ' + data[0]);
-        };
-
-        if (app.peripheral && app.peripheral.id) {
-            ble.write(
-                app.peripheral.id,
-                LED_SERVICE,
-                BRIGHTNESS_CHARACTERISTIC,
                 data.buffer,
                 success,
                 app.onError
