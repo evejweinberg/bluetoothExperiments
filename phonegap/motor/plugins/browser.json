@@ -9,6 +9,12 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.example.led"
+        },
+        "cordova-plugin-ble-central": {
+            "PACKAGE_NAME": "com.example.led"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.example.led"
         }
     },
     "dependent_plugins": {}

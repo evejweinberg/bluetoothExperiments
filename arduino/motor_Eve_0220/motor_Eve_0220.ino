@@ -33,7 +33,7 @@ BLEService motorService = BLEService("EE10");
 BLECharCharacteristic startedOrStoppedChar = BLECharCharacteristic("EE11", BLERead | BLEWrite);
 BLEDescriptor descriptor = BLEDescriptor("2901", "Start/Stop");
 
-bool motorOn = true;
+bool motorOn = false;
 int stepCount = 10;                   // number of steps the motor has taken
 const int stepsPerRevolution = 200;  // change this to fit the number of steps per revolution for your motor
 
